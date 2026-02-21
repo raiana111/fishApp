@@ -24,7 +24,7 @@ class ScoreWidget extends StatelessWidget {
         children: [
           _buildScoreItem(Icons.emoji_events, 'Очки: $score', Colors.amber),
           const SizedBox(width: 20),
-          _buildScoreItem(Icons.catching_pokemon, 'Рыбок: $caughtFish', Colors.lightBlue),
+          _buildScoreItem(Icons.waves, 'Рыбок: $caughtFish', Colors.lightBlue),
         ],
       ),
     );

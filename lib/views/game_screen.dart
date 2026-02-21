@@ -46,9 +46,12 @@ class _GameScreenState extends State<GameScreen> {
                   Expanded(
                     child: GestureDetector(
                       onTapDown: (details) {
-                        final renderBox = context.findRenderObject() as RenderBox;
-                        final localPosition = renderBox.globalToLocal(details.globalPosition);
-                        viewModel.catchFish(localPosition.dx, localPosition.dy);
+                        final renderBox =
+                            context.findRenderObject() as RenderBox;
+                        final localPosition =
+                            renderBox.globalToLocal(details.globalPosition);
+                        viewModel.catchFish(
+                            localPosition.dx, localPosition.dy, context);
                       },
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -119,9 +122,10 @@ class _GameScreenState extends State<GameScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            _buildFishInfo('Маленькая: 1 очко', Colors.orange),
-                            _buildFishInfo('Средняя: 2 очка', Colors.blue),
-                            _buildFishInfo('Большая: 3 очка', Colors.red),
+                            _buildFishInfo(
+                                'Маленькая рыба: 1 очко', Colors.orange),
+                            _buildFishInfo('Средняя рыба: 2 очка', Colors.blue),
+                            _buildFishInfo('Большая рыба: 3 очка', Colors.red),
                           ],
                         ),
 
@@ -178,7 +182,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 }
 
-class _WaterBubblesPainter extends CustomPaint {
+class _WaterBubblesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
@@ -198,5 +202,5 @@ class _WaterBubblesPainter extends CustomPaint {
   }
 
   @override
-  bool shouldRepaint(covariant CustomPaint oldDelegate) => false;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

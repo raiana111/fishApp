@@ -16,7 +16,7 @@ class HookWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       left: x - 15,
-      top: y - (isActive ? 50 : 30),
+      top: y - (isActive ? 76 : 57),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         width: 30,
@@ -68,31 +68,8 @@ class _HookPainter extends CustomPainter {
       size.width / 2,
       size.height * 0.8,
     );
-    
+
     canvas.drawPath(hookPath, hookPaint);
-
-    // Поплавок
-    final floatPaint = Paint()
-      ..color = Colors.red
-      ..style = PaintingStyle.fill;
-    
-    canvas.drawCircle(
-      Offset(size.width / 2, size.height * 0.3),
-      6,
-      floatPaint,
-    );
-
-    // Обводка поплавка
-    final floatBorderPaint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
-    
-    canvas.drawCircle(
-      Offset(size.width / 2, size.height * 0.3),
-      6,
-      floatBorderPaint,
-    );
   }
 
   @override

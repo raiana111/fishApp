@@ -7,7 +7,7 @@ import '../models/game_state.dart';
 class GameViewModel with ChangeNotifier {
   final Random _random = Random();
   late Timer _gameTimer;
-  
+
   GameState _gameState = GameState();
   List<Fish> _fishes = [];
   double _hookX = 0;
@@ -15,7 +15,7 @@ class GameViewModel with ChangeNotifier {
   bool _isHookActive = false;
   bool _isInitialized = false;
 
-  final int _maxFishes = 8; // Уменьшил для лучшей видимости
+  final int _maxFishes = 10;
 
   GameViewModel() {
     _initializeGame();
@@ -69,7 +69,7 @@ class GameViewModel with ChangeNotifier {
     final y = _random.nextDouble() * 500 + 50;
 
     return Fish(
-      id: 'fish_${DateTime.now().millisecondsSinceEpoch}_$i',
+      id: 'fish_${DateTime.now().millisecondsSinceEpoch}_${_random.nextInt(10000)}',
       size: size,
       color: color,
       speed: speed,
@@ -108,7 +108,7 @@ class GameViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void catchFish(double touchX, double touchY) {
+  void catchFish(double touchX, double touchY, BuildContext context) {
     if (!_gameState.isGameActive || _isHookActive) return;
 
     _hookX = touchX;
@@ -130,6 +130,21 @@ class GameViewModel with ChangeNotifier {
         if (distance < minDistance) {
           minDistance = distance;
           caughtFish = fish;
+
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title: const Text('Azamatsyng!'),
+                    content: const Text('Ты поймал рыбку!'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('ОК'),
+                      ),
+                    ],
+                  ));
         }
       }
     }
