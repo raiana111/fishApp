@@ -1,0 +1,16 @@
+00:00 +0: loading D:/FishApp/fiashapp/test/widget_test.dart
+00:00 +0 -1: loading D:/FishApp/fiashapp/Tap [E]
+  Failed to load "D:/FishApp/fiashapp/Tap": Does not exist.
+00:00 +0 -2: loading D:/FishApp/fiashapp/on [E]
+  Failed to load "D:/FishApp/fiashapp/on": Does not exist.
+00:00 +0 -3: loading D:/FishApp/fiashapp/game [E]
+  Failed to load "D:/FishApp/fiashapp/game": Does not exist.
+00:00 +0 -4: loading D:/FishApp/fiashapp/area [E]
+  Failed to load "D:/FishApp/fiashapp/area": Does not exist.
+00:00 +0 -5: loading D:/FishApp/fiashapp/triggers [E]
+  Failed to load "D:/FishApp/fiashapp/triggers": Does not exist.
+00:00 +0 -6: loading D:/FishApp/fiashapp/hook [E]
+  Failed to load "D:/FishApp/fiashapp/hook": Does not exist.
+00:00 +0 -7: loading D:/FishApp/fiashapp/animation/  [E]
+  Failed to load "D:/FishApp/fiashapp/animation/ ": Does not exist.
+00:00 +0 -7: Some tests failed.

@@ -45,6 +45,8 @@ class _GameScreenState extends State<GameScreen> {
                   // Игровое поле
                   Expanded(
                     child: GestureDetector(
+                      key: const Key('game_area'),
+                      behavior: HitTestBehavior.opaque,
                       onTapDown: (details) {
                         final renderBox =
                             context.findRenderObject() as RenderBox;

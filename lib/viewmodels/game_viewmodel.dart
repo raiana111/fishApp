@@ -108,7 +108,7 @@ class GameViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void catchFish(double touchX, double touchY, BuildContext context) {
+  void catchFish(double touchX, double touchY, [BuildContext? context]) {
     if (!_gameState.isGameActive || _isHookActive) return;
 
     _hookX = touchX;
@@ -131,20 +131,22 @@ class GameViewModel with ChangeNotifier {
           minDistance = distance;
           caughtFish = fish;
 
-          showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                    title: const Text('Azamatsyng!'),
-                    content: const Text('Ты поймал рыбку!'),
-                    actions: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('ОК'),
-                      ),
-                    ],
-                  ));
+          if (context != null) {
+            showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                      title: const Text('Azamatsyng!'),
+                      content: const Text('Ты поймал рыбку!'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('ОК'),
+                        ),
+                      ],
+                    ));
+          }
         }
       }
     }
